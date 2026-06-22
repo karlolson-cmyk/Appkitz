@@ -12,8 +12,8 @@ android {
         applicationId = "com.appkitz"
         minSdk = 30
         targetSdk = 36
-        versionCode = 18
-        versionName = "2.3.7"
+        versionCode = 20
+        versionName = "2.4.0"
     }
 
     signingConfigs {

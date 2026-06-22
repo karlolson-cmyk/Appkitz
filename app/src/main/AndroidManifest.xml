@@ -55,8 +55,26 @@
                 <data android:host="*" />
                 <data android:mimeType="*/*" />
                 <data android:pathPattern=".*\\.apkm" />
+                <data android:pathPattern=".*\\..*\\.apkm" />
+                <data android:pathPattern=".*\\..*\\..*\\.apkm" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.apkm" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.apkm" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.apkm" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.apkm" />
                 <data android:pathPattern=".*\\.apks" />
+                <data android:pathPattern=".*\\..*\\.apks" />
+                <data android:pathPattern=".*\\..*\\..*\\.apks" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.apks" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.apks" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.apks" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.apks" />
                 <data android:pathPattern=".*\\.xapk" />
+                <data android:pathPattern=".*\\..*\\.xapk" />
+                <data android:pathPattern=".*\\..*\\..*\\.xapk" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.xapk" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.xapk" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.xapk" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.xapk" />
                 <data android:pathPattern=".*\\.APKM" />
                 <data android:pathPattern=".*\\.APKS" />
                 <data android:pathPattern=".*\\.XAPK" />
@@ -70,6 +88,13 @@
                 <data android:mimeType="application/octet-stream" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".installer.InstallConfirmationActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <service
             android:name=".installer.InstallService"

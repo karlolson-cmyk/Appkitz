@@ -12,7 +12,9 @@ data class SplitEntry(
     val isRequired: Boolean = false,
     val isDefault: Boolean = false
 ) : Serializable {
-    companion object { private const val serialVersionUID = 1L }
+    companion object {
+        private const val serialVersionUID = 1L
+    }
 }
 
 object SplitApkParser {
