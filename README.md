@@ -2,8 +2,6 @@
 
 [English](#english)
 
-支持 WebDAV，备份用户应用和系统应用。可以选择备份应用名字，也可以选择备份成 APK 文件（不包括应用数据）。支持搜索、长按复制包名。
-
 ## 功能特点
 
 - **WebDAV 备份** — 将应用上传到自建 WebDAV 服务器
@@ -33,8 +31,6 @@ MIT
 # App Backup
 
 [中文](#)
-
-Supports WebDAV to backup user apps and system apps. You can choose to backup app metadata only or backup as APK files (excluding app data). Supports search and long-press to copy package name.
 
 ## Features
 
