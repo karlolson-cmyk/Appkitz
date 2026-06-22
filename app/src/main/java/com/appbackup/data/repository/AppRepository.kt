@@ -10,15 +10,15 @@ class AppRepository(private val context: Context) {
 
     fun getInstalledApps(): List<AppInfo> {
         val pm = context.packageManager
-        val apps = pm.getInstalledPackages(PackageManager.PackageInfoFlags.of(0))
+        val apps = pm.getInstalledPackages(0)
             .filter { info ->
                 val appInfo = info.applicationInfo
                 appInfo != null &&
                 (appInfo.flags and ApplicationInfo.FLAG_SYSTEM) == 0 &&
                 appInfo.enabled
             }
-            .mapNotNull { info ->
-                val appInfo = info.applicationInfo ?: return@mapNotNull null
+            .map { info ->
+                val appInfo = info.applicationInfo!!
                 val apkFile = File(appInfo.sourceDir)
                 AppInfo(
                     name = pm.getApplicationLabel(appInfo).toString(),
