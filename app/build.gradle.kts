@@ -12,8 +12,8 @@ android {
         applicationId = "com.appbackup"
         minSdk = 30
         targetSdk = 36
-        versionCode = 2
-        versionName = "1.1.0"
+        versionCode = 6
+        versionName = "1.5.0"
     }
 
     buildTypes {
@@ -44,7 +44,8 @@ dependencies {
     implementation(libs.androidx.security.crypto)
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.material3)
-    implementation(libs.compose.material.icons.extended)
+
+    implementation(libs.compose.foundation)
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.okhttp)

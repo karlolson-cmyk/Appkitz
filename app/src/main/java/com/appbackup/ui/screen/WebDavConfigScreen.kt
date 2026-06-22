@@ -51,14 +51,6 @@ fun WebDavConfigScreen(
 
     Box(modifier = Modifier.fillMaxSize()) {
         Scaffold(
-            snackbarHost = {
-                Box(Modifier.fillMaxSize()) {
-                    SnackbarHost(
-                        hostState = snackbarHostState,
-                        modifier = Modifier.align(Alignment.TopCenter)
-                    )
-                }
-            },
             topBar = {
                 TopAppBar(title = { Text("WebDAV 配置") })
             }
@@ -127,5 +119,12 @@ fun WebDavConfigScreen(
                 }
             }
         }
+
+        SnackbarHost(
+            hostState = snackbarHostState,
+            modifier = Modifier
+                .align(Alignment.TopCenter)
+                .statusBarsPadding()
+        )
     }
 }

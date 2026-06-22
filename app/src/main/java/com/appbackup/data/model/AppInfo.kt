@@ -1,5 +1,7 @@
 package com.appbackup.data.model
 
+enum class AppType { USER, SYSTEM }
+
 data class AppInfo(
     val name: String,
     val packageName: String,
@@ -7,5 +9,6 @@ data class AppInfo(
     val apkSize: Long,
     val versionName: String,
     val versionCode: Long,
+    val type: AppType = AppType.USER,
     val isSelected: Boolean = false
 )
