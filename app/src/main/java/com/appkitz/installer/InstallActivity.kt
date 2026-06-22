@@ -41,6 +41,7 @@ class InstallActivity : ComponentActivity() {
     private val installReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
             val status = intent.getIntExtra(PackageInstaller.EXTRA_STATUS, PackageInstaller.STATUS_FAILURE)
+            if (status == PackageInstaller.STATUS_PENDING_USER_ACTION) return
             val message = intent.getStringExtra(PackageInstaller.EXTRA_STATUS_MESSAGE)
             val toast = if (status == PackageInstaller.STATUS_SUCCESS) {
                 "安装成功"
@@ -86,6 +87,7 @@ fun InstallScreen(uri: Uri, onDone: () -> Unit) {
     var error by remember { mutableStateOf<String?>(null) }
     var installing by remember { mutableStateOf(false) }
     var installError by remember { mutableStateOf<String?>(null) }
+    var showPermissionDialog by remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope()
 
     LaunchedEffect(uri) {
@@ -121,6 +123,23 @@ fun InstallScreen(uri: Uri, onDone: () -> Unit) {
         }
     }
 
+    if (showPermissionDialog) {
+        AlertDialog(
+            onDismissRequest = onDone,
+            title = { Text("需要权限") },
+            text = { Text("安装应用需要开启「安装未知应用」权限。\n请前往：设置 → 特殊权限 → 安装未知应用 → Appkitz → 允许") },
+            confirmButton = { TextButton(onClick = {
+                Intent(android.provider.Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES).also {
+                    it.data = android.net.Uri.parse("package:${context.packageName}")
+                    context.startActivity(it)
+                }
+                showPermissionDialog = false
+            }) { Text("去设置") } },
+            dismissButton = { TextButton(onClick = { showPermissionDialog = false; onDone() }) { Text("取消") } }
+        )
+        return
+    }
+
     installError?.let {
         AlertDialog(
             onDismissRequest = onDone,
@@ -146,6 +165,10 @@ fun InstallScreen(uri: Uri, onDone: () -> Unit) {
             InstallDialog(
                 entries = apkEntries,
                 onInstall = { selected ->
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !context.packageManager.canRequestPackageInstalls()) {
+                        showPermissionDialog = true
+                        return@InstallDialog
+                    }
                     installing = true
                     val file = cacheFile
                     if (file == null) {
@@ -168,6 +191,8 @@ fun InstallScreen(uri: Uri, onDone: () -> Unit) {
                     CircularProgressIndicator()
                     Spacer(Modifier.height(16.dp))
                     Text("正在安装...")
+                    Spacer(Modifier.height(24.dp))
+                    OutlinedButton(onClick = onDone) { Text("取消") }
                 }
             }
         }
