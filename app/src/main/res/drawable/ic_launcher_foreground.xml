@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- 安卓机器人 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M44,42h20v2h-20zM42,36c0,-2 2,-4 4,-4l14,0c2,0 4,2 4,4l0,16l-22,0zM46,34l-4,0l0,4l4,0zM62,34l4,0l0,4l-4,0zM44,38l0,12l20,0l0,-12z" />
+    <!-- 备份箭头 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,52l-8,-8h5v-6h6v6h5z" />
+</vector>
