@@ -4,9 +4,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
         android:usesPermissionFlags="neverForLocation" />
-    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
@@ -27,86 +24,5 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".installer.InstallActivity"
-            android:exported="true"
-            android:label="@string/install"
-            android:theme="@style/Theme.Appkitz"
-            android:excludeFromRecents="true"
-            android:launchMode="singleTop">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="file" />
-                <data android:scheme="content" />
-                <data android:host="*" />
-                <data android:mimeType="application/vnd.android.package-archive" />
-                <data android:mimeType="application/vnd.apkm" />
-                <data android:mimeType="application/xapk-package-archive" />
-                <data android:mimeType="application/octet-stream" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="file" />
-                <data android:scheme="content" />
-                <data android:host="*" />
-                <data android:mimeType="*/*" />
-                <data android:pathPattern=".*\\.apkm" />
-                <data android:pathPattern=".*\\..*\\.apkm" />
-                <data android:pathPattern=".*\\..*\\..*\\.apkm" />
-                <data android:pathPattern=".*\\..*\\..*\\..*\\.apkm" />
-                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.apkm" />
-                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.apkm" />
-                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.apkm" />
-                <data android:pathPattern=".*\\.apks" />
-                <data android:pathPattern=".*\\..*\\.apks" />
-                <data android:pathPattern=".*\\..*\\..*\\.apks" />
-                <data android:pathPattern=".*\\..*\\..*\\..*\\.apks" />
-                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.apks" />
-                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.apks" />
-                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.apks" />
-                <data android:pathPattern=".*\\.xapk" />
-                <data android:pathPattern=".*\\..*\\.xapk" />
-                <data android:pathPattern=".*\\..*\\..*\\.xapk" />
-                <data android:pathPattern=".*\\..*\\..*\\..*\\.xapk" />
-                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.xapk" />
-                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.xapk" />
-                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.xapk" />
-                <data android:pathPattern=".*\\.APKM" />
-                <data android:pathPattern=".*\\.APKS" />
-                <data android:pathPattern=".*\\.XAPK" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="application/vnd.android.package-archive" />
-                <data android:mimeType="application/vnd.apkm" />
-                <data android:mimeType="application/xapk-package-archive" />
-                <data android:mimeType="application/octet-stream" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".installer.InstallConfirmationActivity"
-            android:exported="false"
-            android:excludeFromRecents="true"
-            android:noHistory="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
-        <service
-            android:name=".installer.InstallService"
-            android:exported="false"
-            android:foregroundServiceType="dataSync" />
-
-        <receiver
-            android:name=".installer.InstallResultReceiver"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.appkitz.INSTALL_RESULT" />
-            </intent-filter>
-        </receiver>
     </application>
 </manifest>

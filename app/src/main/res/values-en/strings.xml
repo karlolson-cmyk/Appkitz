@@ -50,7 +50,6 @@
     <string name="create_dir_failed">Failed to create directory (%d)</string>
     <string name="upload_failed">Upload failed (%d)</string>
     <string name="all_backups_failed">All backups failed</string>
-    <string name="install">Install</string>
     <string name="unknown_error">Unknown error</string>
     <string name="unknown_error_with_msg">Unknown error: %s</string>
     <string name="backup_result_success">Success</string>

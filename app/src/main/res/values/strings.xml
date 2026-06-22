@@ -50,7 +50,6 @@
     <string name="create_dir_failed">创建目录失败（%d）</string>
     <string name="upload_failed">上传失败（%d）</string>
     <string name="all_backups_failed">所有应用备份均失败</string>
-    <string name="install">安装</string>
     <string name="unknown_error">未知错误</string>
     <string name="unknown_error_with_msg">未知错误：%s</string>
     <string name="backup_result_success">成功</string>

@@ -12,8 +12,8 @@ android {
         applicationId = "com.appkitz"
         minSdk = 30
         targetSdk = 36
-        versionCode = 20
-        versionName = "2.4.0"
+        versionCode = 21
+        versionName = "2.7.0"
     }
 
     signingConfigs {
@@ -24,7 +24,8 @@ android {
     }
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             signingConfig = signingConfigs.getByName("debug")
         }
